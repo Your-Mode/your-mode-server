@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: spring-boilerplate
+    name: your-mode
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
