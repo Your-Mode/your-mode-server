@@ -1,18 +1,18 @@
 package com.example.yourmode.domain.customer.domain;
 
+import com.example.yourmode.domain.business.domain.Business;
+import com.example.yourmode.domain.member.domain.Member;
+import com.example.yourmode.global.common.base.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Customer {
+public class Customer extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,17 @@ public class Customer {
     @CollectionTable(name = "customer_image_files", joinColumns = @JoinColumn(name = "customer_id"))
     @Column(name = "image_file", length = 255)
     private List<String> imageFiles;
+
+    @Setter
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member; //고객의 Member 엔티티
+
+    @Setter
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "business_id", nullable = false)
+    private Business business;
+
 
     @Builder
     public Customer(String nikeName, String phone, String memo, String pdfFile, List<String> imageFiles) {
