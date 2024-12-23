@@ -37,7 +37,7 @@ public class Customer extends BaseEntity {
 
     @Setter
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "customer_member_id")
     private Member member; //고객의 Member 엔티티
 
     @Setter

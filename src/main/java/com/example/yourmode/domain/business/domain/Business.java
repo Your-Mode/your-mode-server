@@ -36,7 +36,7 @@ public class Business extends BaseEntity {
 
     @Setter
     @ManyToOne
-    @JoinColumn(name = "member_id") // 일단 널 허용 todo: 널 막아야 함
+    @JoinColumn(name = "owner_id") // 일단 널 허용 todo: 널 막아야 함
     private Member member;
 
     @Builder
