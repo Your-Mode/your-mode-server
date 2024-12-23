@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-@Component
+//@Component
 @Slf4j
 public class S3FileComponent {
     private final AmazonS3Client amazonS3Client; // AmazonS3Client 객체 주입
