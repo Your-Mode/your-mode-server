@@ -22,6 +22,7 @@ public class MemberMapper {
                 .accessToken(tokenInfo.accessToken())
                 .refreshToken(tokenInfo.refreshToken())
                 .isServiceMember(isServiceMember)
+                .role(role)
                 .build();
     }
 }
