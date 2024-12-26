@@ -1,7 +1,7 @@
-package com.example.yourmode.domain.review.domain;
+package com.example.yourmode.domain.review.entity;
 
-import com.example.yourmode.domain.business.domain.Business;
-import com.example.yourmode.domain.member.domain.Member;
+import com.example.yourmode.domain.business.entity.Business;
+import com.example.yourmode.domain.member.entity.Member;
 import com.example.yourmode.global.common.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;

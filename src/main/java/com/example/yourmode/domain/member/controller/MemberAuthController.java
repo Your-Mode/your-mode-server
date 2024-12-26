@@ -1,7 +1,7 @@
 package com.example.yourmode.domain.member.controller;
 
-import com.example.yourmode.domain.member.domain.Member;
-import com.example.yourmode.domain.member.domain.LoginType;
+import com.example.yourmode.domain.member.entity.Member;
+import com.example.yourmode.domain.member.entity.LoginType;
 import com.example.yourmode.domain.member.dto.request.MemberSignUpRequest;
 import com.example.yourmode.domain.member.dto.response.MemberGenerateTokenResponse;
 import com.example.yourmode.domain.member.dto.response.MemberIdResponse;

@@ -1,9 +1,9 @@
 package com.example.yourmode.domain.member.strategy.impl;
 
 
-import com.example.yourmode.domain.member.domain.LoginType;
-import com.example.yourmode.domain.member.domain.Member;
-import com.example.yourmode.domain.member.domain.Role;
+import com.example.yourmode.domain.member.entity.LoginType;
+import com.example.yourmode.domain.member.entity.Member;
+import com.example.yourmode.domain.member.entity.Role;
 import com.example.yourmode.domain.member.dto.response.MemberLoginResponse;
 import com.example.yourmode.domain.member.mapper.MemberMapper;
 import com.example.yourmode.domain.member.repository.MemberRepository;

@@ -1,4 +1,4 @@
-package com.example.yourmode.domain.business.domain;
+package com.example.yourmode.domain.business.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

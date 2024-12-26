@@ -1,6 +1,6 @@
 package com.example.yourmode.domain.test.controller;
 
-import com.example.yourmode.domain.member.domain.Member;
+import com.example.yourmode.domain.member.entity.Member;
 import com.example.yourmode.global.common.base.BaseResponse;
 import com.example.yourmode.global.config.security.auth.CurrentMember;
 import io.swagger.v3.oas.annotations.Operation;

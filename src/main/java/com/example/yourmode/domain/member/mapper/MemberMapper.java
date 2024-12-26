@@ -1,8 +1,8 @@
 package com.example.yourmode.domain.member.mapper;
 
-import com.example.yourmode.domain.member.domain.Member;
-import com.example.yourmode.domain.member.domain.LoginType;
-import com.example.yourmode.domain.member.domain.Role;
+import com.example.yourmode.domain.member.entity.Member;
+import com.example.yourmode.domain.member.entity.LoginType;
+import com.example.yourmode.domain.member.entity.Role;
 import com.example.yourmode.domain.member.dto.response.MemberLoginResponse;
 import com.example.yourmode.global.config.security.jwt.TokenInfo;
 import org.springframework.stereotype.Component;

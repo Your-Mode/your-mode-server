@@ -1,6 +1,6 @@
-package com.example.yourmode.domain.business.domain;
+package com.example.yourmode.domain.business.entity;
 
-import com.example.yourmode.domain.member.domain.Member;
+import com.example.yourmode.domain.member.entity.Member;
 import com.example.yourmode.global.common.base.BaseEntity;
 import com.example.yourmode.global.common.enums.Status;
 import jakarta.persistence.*;

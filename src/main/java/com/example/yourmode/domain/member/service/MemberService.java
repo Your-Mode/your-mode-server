@@ -1,6 +1,6 @@
 package com.example.yourmode.domain.member.service;
 
-import com.example.yourmode.domain.member.domain.Member;
+import com.example.yourmode.domain.member.entity.Member;
 import com.example.yourmode.domain.member.repository.MemberRepository;
 import com.example.yourmode.domain.member.status.MemberErrorStatus;
 import com.example.yourmode.global.common.exception.RestApiException;
