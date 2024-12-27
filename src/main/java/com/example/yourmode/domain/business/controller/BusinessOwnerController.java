@@ -34,7 +34,7 @@ public class BusinessOwnerController {
         );
     }
 
-    // 업장 수정 todo: 멤버가 업주가 아닌 업장은 수정 삭제 못하도록 커스텀 어노테이션으로 처리
+    // 업장 수정
     @Operation(summary = "업장 수정", description = "기존 업장의 정보를 수정함")
     @PatchMapping("/{businessId}")
     @VerifyBusinessOwner
