@@ -1,4 +1,4 @@
-package com.example.yourmode.domain.member.domain;
+package com.example.yourmode.domain.member.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +8,7 @@ import lombok.Getter;
 public enum Role {
     ADMIN("관리자", 0),
     MEMBER("일반 멤버", 1),
+    BUSINESS("사업자", 1),
     GUEST("비회원", 2);
 
     private final String toKorean;

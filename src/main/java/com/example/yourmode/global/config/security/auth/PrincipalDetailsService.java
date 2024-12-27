@@ -1,6 +1,6 @@
 package com.example.yourmode.global.config.security.auth;
 
-import com.example.yourmode.domain.member.domain.Member;
+import com.example.yourmode.domain.member.entity.Member;
 import com.example.yourmode.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;

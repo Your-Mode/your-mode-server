@@ -1,6 +1,6 @@
 package com.example.yourmode.domain.member.strategy.context;
 
-import com.example.yourmode.domain.member.domain.LoginType;
+import com.example.yourmode.domain.member.entity.LoginType;
 import com.example.yourmode.domain.member.dto.response.MemberLoginResponse;
 import com.example.yourmode.domain.member.strategy.LoginStrategy;
 import com.example.yourmode.domain.member.strategy.impl.AnonymousLoginStrategy;
