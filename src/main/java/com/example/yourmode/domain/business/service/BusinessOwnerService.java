@@ -12,4 +12,5 @@ public interface BusinessOwnerService {
 
     BusinessIdResponseDto deleteBusiness(Long id);
 
+    Boolean isOwnerOfBusiness(Long memberId, Long businessId);
 }

@@ -63,4 +63,14 @@ public class BusinessOwnerServiceImpl implements BusinessOwnerService{
 
         return new BusinessIdResponseDto(businessId);
     }
+
+    @Override
+    public Boolean isOwnerOfBusiness(Long memberId, Long businessId) {
+        // 업장 찾기
+        Business business = businessRepository.findById(businessId)
+                .orElseThrow(() -> new RestApiException(BusinessErrorStatus.EMPTY_BUSINESS));
+
+        // 업장의 소유자와 멤버가 같은지 확인
+        return business.getMember().getId().equals(memberId);
+    }
 }
