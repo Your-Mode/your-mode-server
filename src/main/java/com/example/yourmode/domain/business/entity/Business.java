@@ -26,7 +26,7 @@ public class Business extends BaseEntity {
 
     private String address;
 
-    private String page;
+    private String siteUrl;
 
     @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<Customer> customers = new ArrayList<>();
@@ -40,11 +40,11 @@ public class Business extends BaseEntity {
     private Member member;
 
     @Builder
-    public Business(BusinessType businessType, String name, String address, String page) {
+    public Business(BusinessType businessType, String name, String address, String siteUrl) {
         this.businessType = businessType;
         this.name = name;
         this.address = address;
-        this.page = page;
+        this.siteUrl = siteUrl;
     }
 
     public void addCustomer(Customer customer) {
