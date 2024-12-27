@@ -1,8 +1,11 @@
 package com.example.yourmode.domain.business.controller;
 
-import com.example.yourmode.domain.business.dto.request.BusinessRequest;
-import com.example.yourmode.domain.business.dto.response.BusinessIdResponse;
+import com.example.yourmode.domain.business.dto.request.BusinessRequestDto;
+import com.example.yourmode.domain.business.dto.response.BusinessIdResponseDto;
+import com.example.yourmode.domain.business.service.BusinessOwnerService;
+import com.example.yourmode.domain.member.entity.Member;
 import com.example.yourmode.global.common.base.BaseResponse;
+import com.example.yourmode.global.config.security.auth.CurrentMember;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -15,36 +18,43 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/owner/businesses")
 public class BusinessOwnerController {
 
+    private final BusinessOwnerService businessOwnerService;
+
     // 업장 등록
     @Operation(summary = "업장 등록", description = "새로운 업장을 등록함")
     @PostMapping
-    public BaseResponse<BusinessIdResponse> registerBusiness(@RequestBody BusinessRequest request) {
+    public BaseResponse<BusinessIdResponseDto> registerBusiness(
+            @CurrentMember Member member,
+            @RequestBody BusinessRequestDto request
+    ) {
 
-        businessService.registerBusiness(request);
-
-        return BaseResponse.onSuccess();
+        return BaseResponse.onSuccess(
+                businessOwnerService.createBusiness(member, request)
+        );
     }
 
-    // 업장 수정
+    // 업장 수정 todo: 멤버가 업주가 아닌 업장은 수정 삭제 못하도록 커스텀 어노테이션으로 처리
     @Operation(summary = "업장 수정", description = "기존 업장의 정보를 수정함")
     @PatchMapping("/{businessId}")
-    public BaseResponse<BusinessIdResponse> updateBusiness(
+    public BaseResponse<BusinessIdResponseDto> updateBusiness(
             @PathVariable Long businessId,
-            @RequestBody BusinessRequest request) {
+            @RequestBody BusinessRequestDto request) {
 
-        businessService.updateBusiness(businessId, request);
-
-        return BaseResponse.onSuccess(updatedBusiness);
+        return BaseResponse.onSuccess(
+                businessOwnerService.updateBusiness(businessId, request)
+        );
     }
 
     // 업장 삭제
     @Operation(summary = "업장 삭제", description = "업장 정보를 삭제함")
     @DeleteMapping("/{businessId}")
-    public BaseResponse<BusinessIdResponse> deleteBusiness(@PathVariable Long businessId) {
+    public BaseResponse<BusinessIdResponseDto> deleteBusiness(
+            @PathVariable Long businessId)
+    {
 
-        businessService.deleteBusiness(businessId);
-
-        return BaseResponse.onSuccess();
+        return BaseResponse.onSuccess(
+                businessOwnerService.deleteBusiness(businessId)
+        );
     }
 
 }
