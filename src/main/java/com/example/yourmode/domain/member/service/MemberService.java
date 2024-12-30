@@ -44,4 +44,15 @@ public class MemberService {
 
     }
 
+    // 핸드폰 번호로 찾기
+    public Member getMemberByPhone(String phone) {
+        return memberRepository.findByPhone(phone)
+                .orElseThrow(() -> new RestApiException(MemberErrorStatus.EMPTY_MEMBER));
+    }
+
+    // 핸드폰 번호로 있나
+    public boolean existsByPhone(String phone) {
+        return memberRepository.existsByPhone(phone);
+    }
+
 }

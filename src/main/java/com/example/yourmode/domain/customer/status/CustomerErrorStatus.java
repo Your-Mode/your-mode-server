@@ -1,4 +1,4 @@
-package com.example.yourmode.domain.business.status;
+package com.example.yourmode.domain.customer.status;
 
 import com.example.yourmode.global.common.exception.code.BaseCodeDto;
 import com.example.yourmode.global.common.exception.code.BaseCodeInterface;
@@ -8,12 +8,10 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
-public enum BusinessErrorStatus implements BaseCodeInterface {
+public enum CustomerErrorStatus implements BaseCodeInterface {
 
-    EMPTY_BUSINESS(HttpStatus.NOT_FOUND, "BUSINESS404", "사업체를 찾을 수 없습니다."),
-    UNABLE_TO_CREATE_BUSINESS(HttpStatus.FORBIDDEN, "BUSINESS403", "사업체를 생성할 수 없는 역할입니다."),
-    UNABLE_TO_HANDLE_BUSINESS(HttpStatus.FORBIDDEN, "BUSINESS403", "자신의 사업체가 아닌 것은 수정, 삭제 할 수 없습니다."),
-    EMPTY_BUSINESS_MEMBER(HttpStatus.NOT_FOUND, "BUSINESS404", "사용자가 가진 사업체를 찾을 수 없습니다.")
+    EMPTY_CUSTOMER(HttpStatus.NOT_FOUND, "CUSTOMER404", "고객을 찾을 수 없습니다."),
+    EXIST_CUSTOMER(HttpStatus.CONFLICT, "CUSTOMER409", "이미 존재하는 고객입니다."),
     ;
 
     private final HttpStatus httpStatus;
