@@ -1,6 +1,7 @@
 package com.example.yourmode.domain.customer.entity;
 
 import com.example.yourmode.domain.business.entity.Business;
+import com.example.yourmode.domain.customer.dto.request.CustomerRequestDto;
 import com.example.yourmode.domain.member.entity.Member;
 import com.example.yourmode.global.common.base.BaseEntity;
 import jakarta.persistence.*;
@@ -53,5 +54,14 @@ public class Customer extends BaseEntity {
         this.memo = memo;
         this.pdfFile = pdfFile;
         this.imageFiles = imageFiles;
+    }
+
+    public Customer updateCustomer(CustomerRequestDto request) {
+        this.nikeName = request.nikeName();
+        this.phone = request.phone();
+        this.memo = request.memo();
+        this.pdfFile = request.pdfFile();
+        this.imageFiles = request.imageFiles();
+        return this;
     }
 }

@@ -43,8 +43,7 @@ public class BusinessOwnerServiceImpl implements BusinessOwnerService{
     @Override
     public BusinessIdResponseDto updateBusiness(Long businessId, BusinessRequestDto businessRequestDto) {
         // 업장 찾기
-        Business business = businessRepository.findById(businessId)
-                .orElseThrow(() -> new RestApiException(BusinessErrorStatus.EMPTY_BUSINESS));
+        Business business = getBusinessById(businessId);
 
         // 업장 정보 수정
         business.updateBusiness(businessRequestDto);
@@ -55,8 +54,7 @@ public class BusinessOwnerServiceImpl implements BusinessOwnerService{
     @Override
     public BusinessIdResponseDto deleteBusiness(Long businessId) {
         // 업장 찾기
-        Business business = businessRepository.findById(businessId)
-                .orElseThrow(() -> new RestApiException(BusinessErrorStatus.EMPTY_BUSINESS));
+        Business business =  getBusinessById(businessId);
 
         // 업장 삭제
         businessRepository.delete(business);
@@ -67,10 +65,21 @@ public class BusinessOwnerServiceImpl implements BusinessOwnerService{
     @Override
     public Boolean isOwnerOfBusiness(Long memberId, Long businessId) {
         // 업장 찾기
-        Business business = businessRepository.findById(businessId)
-                .orElseThrow(() -> new RestApiException(BusinessErrorStatus.EMPTY_BUSINESS));
+        Business business = getBusinessById(businessId);
 
         // 업장의 소유자와 멤버가 같은지 확인
         return business.getMember().getId().equals(memberId);
+    }
+
+    @Override
+    public Business getBusinessByMember(Member member) {
+        return businessRepository.findByMember(member)
+                .orElseThrow(() -> new RestApiException(BusinessErrorStatus.EMPTY_BUSINESS_MEMBER));
+    }
+
+    // 업장 생성
+    private Business getBusinessById(Long businessId) {
+        return businessRepository.findById(businessId)
+                .orElseThrow(() -> new RestApiException(BusinessErrorStatus.EMPTY_BUSINESS));
     }
 }
