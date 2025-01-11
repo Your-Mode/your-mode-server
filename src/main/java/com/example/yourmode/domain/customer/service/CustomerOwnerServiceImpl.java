@@ -11,6 +11,7 @@ import com.example.yourmode.domain.customer.mapper.CustomerMapper;
 import com.example.yourmode.domain.customer.repository.CustomerRepository;
 import com.example.yourmode.domain.customer.status.CustomerErrorStatus;
 import com.example.yourmode.domain.member.entity.Member;
+import com.example.yourmode.domain.member.service.MemberAdapterService;
 import com.example.yourmode.domain.member.service.MemberService;
 import com.example.yourmode.global.common.exception.RestApiException;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,7 @@ public class CustomerOwnerServiceImpl implements CustomerOwnerService{
     private final CustomerRepository customerRepository;
 
     private final BusinessOwnerService businessOwnerService;
-    private final MemberService memberService;
+    private final MemberAdapterService memberAdapterService;
 
     @Override
     @Transactional
@@ -47,8 +48,8 @@ public class CustomerOwnerServiceImpl implements CustomerOwnerService{
         customer.setBusiness(business);
 
         // 같은 전화번호를 가진 멤버가 있으면 고객이랑 연관관게 매핑
-        if(memberService.existsByPhone(request.phone())){
-            Member memberByPhone = memberService.getMemberByPhone(request.phone());
+        if(memberAdapterService.existsByPhone(request.phone())){
+            Member memberByPhone = memberAdapterService.getMemberByPhone(request.phone());
             customer.setMember(memberByPhone);
         }
 
